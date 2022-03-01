@@ -1,0 +1,20 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation 'io.github.italbytz.adapters.meal:mock:0.2.0'
+    implementation 'io.github.italbytz.ports:meal:0.2.0'
+    implementation 'io.github.italbytz.ports:common:0.2.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.0-native-mt"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-native-mt'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-native-mt'
+    testImplementation 'junit:junit:4.13.2'
+
+}
