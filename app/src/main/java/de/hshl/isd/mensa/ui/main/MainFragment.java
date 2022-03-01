@@ -21,7 +21,7 @@ import de.hshl.isd.mensa.R;
 import io.github.italbytz.adapters.meal.MockGetMealsCommand;
 import io.github.italbytz.ports.meal.GetMealsCommand;
 import io.github.italbytz.ports.meal.MealCollection;
-import static de.hshl.isd.ktx.CoroutineWrapperKt.*;
+import static de.hshl.isd.mensa.CoroutineWrapperKt.*;
 
 public class MainFragment extends Fragment {
 
@@ -43,8 +43,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        // TODO: Use the ViewModel
+
         try {
             List<MealCollection> meals = executeFromJava(command,new
                     MealQueryDTO(42, LocalDate.now())).get();
@@ -53,6 +52,8 @@ public class MainFragment extends Fragment {
             Log.e("MainFragment", ex.getLocalizedMessage());
         }
 
+        mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        // TODO: Use the ViewModel
 
     }
 
