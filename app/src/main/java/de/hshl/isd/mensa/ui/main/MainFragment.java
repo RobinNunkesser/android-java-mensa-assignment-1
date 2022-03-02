@@ -45,9 +45,10 @@ public class MainFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         try {
-            List<MealCollection> meals = executeFromJava(command,new
-                    MealQueryDTO(42, LocalDate.now())).get();
-            Log.i("MainFragment", meals.toString());
+            executeFromJava(command,new
+                    MealQueryDTO(42, LocalDate.now())).thenAccept(meals -> {
+                        Log.i("MainFragment", meals.toString());
+                    });
         } catch (Exception ex) {
             Log.e("MainFragment", ex.getLocalizedMessage());
         }
